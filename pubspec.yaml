@@ -1,0 +1,9 @@
+name: dogma_postgresql_connection
+version: 0.0.1
+description: A starting point for Dart libraries or applications.
+dependencies:
+  dogma_sql_connection:
+    path: ../dogma-sql-connection
+  postgresql: any
+dev_dependencies:
+  test: any
