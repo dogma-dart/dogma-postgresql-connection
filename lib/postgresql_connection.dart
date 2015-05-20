@@ -118,7 +118,7 @@ class PostgreSqlConnection extends SqlConnection {
   //---------------------------------------------------------------------
 
   @override
-  Future<dynamic> executeSql(String statement) async {
+  Stream<dynamic> executeSql(String statement) async {
     assert(_connectionPool != null);
 
     print(statement);
@@ -127,7 +127,7 @@ class PostgreSqlConnection extends SqlConnection {
     var connection = await _connectionPool.connect() as postgres.Connection;
 
     // Get the values
-    var values = await connection.query(statement).map((row) => row.toList()).toList();
+    var values = connection.query(statement).map((row) => row.toList());
 
     // Return the connection to the pool
     connection.close();
