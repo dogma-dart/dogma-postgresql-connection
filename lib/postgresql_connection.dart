@@ -118,7 +118,7 @@ class PostgreSqlConnection extends SqlConnection {
   //---------------------------------------------------------------------
 
   @override
-  Stream<dynamic> executeSql(String statement) async {
+  Stream<dynamic> executeSql(String statement) async* {
     assert(_connectionPool != null);
 
     print(statement);
@@ -129,10 +129,10 @@ class PostgreSqlConnection extends SqlConnection {
     // Get the values
     var values = connection.query(statement).map((row) => row.toList());
 
+    yield* values;
+
     // Return the connection to the pool
     connection.close();
-
-    return values;
   }
 }
 
