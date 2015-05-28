@@ -4,7 +4,7 @@
 // the LICENSE file.
 
 /// An implementation of a Dogma [Connection] that interfaces with a PostgreSQL database.
-library dogma.postgresql_connection;
+library dogma_postgresql_connection;
 
 //---------------------------------------------------------------------
 // Standard libraries
